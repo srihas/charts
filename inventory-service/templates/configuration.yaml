@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "inventory-service.fullname" . }}-config
+  name: {{ template "inventory-service.fullname" . }}-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "inventory-service.labels" . | nindent 4 }}
+data:
+{{ .Values.inventoryservice.configuration | indent 4 }}

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "shipping-service.fullname" . }}-config
+  name: {{ template "shipping-service.fullname" . }}-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "shipping-service.labels" . | nindent 4 }}
+data:
+{{ .Values.shippingservice.configuration | indent 4 }}

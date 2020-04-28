@@ -1,0 +1,82 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ template "rabbitmq.fullname" . }}
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app: {{ template "rabbitmq.name" . }}
+    chart: {{ template "rabbitmq.chart" .  }}
+    release: "{{ .Release.Name }}"
+    heritage: "{{ .Release.Service }}"
+spec:
+  serviceName: {{ template "rabbitmq.fullname" . }}
+  podManagementPolicy: {{ .Values.podManagementPolicy }}
+  replicas: {{ .Values.replicas }}
+  updateStrategy:
+    type: {{ .Values.updateStrategy.type }}
+    {{- if (eq "Recreate" .Values.updateStrategy.type) }}
+    rollingUpdate: null
+    {{- end }}
+  selector:
+    matchLabels:
+      app: {{ template "rabbitmq.name" . }}
+      release: "{{ .Release.Name }}"
+  template:
+    metadata:
+      labels:
+        app: {{ template "rabbitmq.name" . }}
+        release: "{{ .Release.Name }}"
+    spec:
+      serviceAccountName: {{ template "rabbitmq.fullname" . }}
+      terminationGracePeriodSeconds: 10
+      containers:
+      - name: rabbitmq
+        image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        imagePullPolicy: {{ .Values.image.pullPolicy | quote }}
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/rabbitmq
+        ports:
+        - name: http
+          protocol: TCP
+          containerPort: {{ .Values.service.managerPort }}
+        - name: amqp
+          protocol: TCP
+          containerPort: {{ .Values.service.port }}
+        livenessProbe:
+          exec:
+            command: ["rabbitmqctl", "status"]
+          initialDelaySeconds: {{ .Values.livenessProbe.initialDelaySeconds }}
+          periodSeconds: {{ .Values.livenessProbe.periodSeconds }}
+          timeoutSeconds: {{ .Values.livenessProbe.timeoutSeconds }}
+        {{- if .Values.readinessProbe.enabled }}
+        readinessProbe:
+          exec:
+            command: ["rabbitmqctl", "status"]
+          initialDelaySeconds: {{ .Values.readinessProbe.initialDelaySeconds }}
+          timeoutSeconds: {{ .Values.readinessProbe.timeoutSeconds }}
+          periodSeconds: {{ .Values.readinessProbe.periodSeconds }}
+        {{- end }}
+        env:
+          - name: MY_POD_IP
+            valueFrom:
+              fieldRef:
+                fieldPath: status.podIP
+          - name: RABBITMQ_USE_LONGNAME
+            value: "true"
+          # See a note on cluster_formation.k8s.address_type in the config file section
+          - name: RABBITMQ_NODENAME
+            value: "rabbit@$(MY_POD_IP)"
+          - name: K8S_SERVICE_NAME
+            value: "{{ template "rabbitmq.fullname" . }}"
+          - name: RABBITMQ_ERLANG_COOKIE
+            value: "mycookie"
+      volumes:
+        - name: config-volume
+          configMap:
+            name: {{ template "rabbitmq.fullname" . }}-config
+            items:
+            - key: rabbitmq.conf
+              path: rabbitmq.conf
+            - key: enabled_plugins
+              path: enabled_plugins

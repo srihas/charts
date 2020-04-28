@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ template "order-service.fullname" . }}-config
+  name: {{ template "order-service.fullname" . }}-config
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "order-service.labels" . | nindent 4 }}
+data:
+{{ .Values.orderservice.configuration | indent 4 }}

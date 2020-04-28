@@ -1,0 +1,15 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: {{ template "postgres.fullname" . }}-pv-volume
+  namespace: {{ .Release.Namespace }}
+  labels:
+    {{- include "postgres.labels" . | nindent 4 }}
+spec:
+  storageClassName: {{ .Values.persistence.storageClass }}
+  capacity:
+    storage: {{ .Values.persistence.size }}
+  accessModes:
+    - {{ .Values.persistence.accessMode }}
+  hostPath:
+    path: {{ .Values.persistence.hostPath }}
