@@ -1,0 +1,58 @@
+apiVersion: v1
+entries:
+  inventory-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2020-04-28T16:05:45.770405+05:30"
+    description: A Helm chart for Inventory Service sample application
+    digest: 926ae6efa9843e3236046dbdd5d7cb497a99413018dfaacf397e08fb3994f0c0
+    name: inventory-service
+    type: application
+    urls:
+    - https://srihas.github.com/charts/inventory-service-0.1.0.tgz
+    version: 0.1.0
+  order-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2020-04-28T16:05:45.771316+05:30"
+    description: A Helm chart for Order service sample application
+    digest: 94b8bda64bed891029c8758270edc5544b11e265cab870cbb4e33d0d2fbe065a
+    name: order-service
+    type: application
+    urls:
+    - https://srihas.github.com/charts/order-service-0.1.0.tgz
+    version: 0.1.0
+  postgres:
+  - apiVersion: v2
+    appVersion: "10.4"
+    created: "2020-04-28T16:05:45.772308+05:30"
+    description: A Helm chart for postgres application
+    digest: cd5b77223197192df6e9f328ca088ef5d3c7ba59cbdb08afaff3cd72961c8b29
+    name: postgres
+    type: application
+    urls:
+    - https://srihas.github.com/charts/postgres-0.1.0.tgz
+    version: 0.1.0
+  rabbitmq:
+  - apiVersion: v2
+    appVersion: "3.7"
+    created: "2020-04-28T16:05:45.773326+05:30"
+    description: A Helm chart for rabbitmq application
+    digest: 7334cec2481b247604b6a03e5f375065e5e1fbb3f8b3996b4f7b76aa5605c8f6
+    name: rabbitmq
+    type: application
+    urls:
+    - https://srihas.github.com/charts/rabbitmq-0.1.0.tgz
+    version: 0.1.0
+  shipping-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2020-04-28T16:05:45.773863+05:30"
+    description: A Helm chart for shipping service application
+    digest: ff3ffde4fd792aa7a5ea0d2fe60c383d770c74882542d4d0905ce1165bbdc7dc
+    name: shipping-service
+    type: application
+    urls:
+    - https://srihas.github.com/charts/shipping-service-0.1.0.tgz
+    version: 0.1.0
+generated: "2020-04-28T16:05:45.768964+05:30"
