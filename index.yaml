@@ -9,7 +9,7 @@ entries:
     name: inventory-service
     type: application
     urls:
-    - https://srihas.github.com/charts/inventory-service-0.1.0.tgz
+    - https://srihas.github.io/charts/inventory-service-0.1.0.tgz
     version: 0.1.0
   order-service:
   - apiVersion: v2
@@ -20,7 +20,7 @@ entries:
     name: order-service
     type: application
     urls:
-    - https://srihas.github.com/charts/order-service-0.1.0.tgz
+    - https://srihas.github.io/charts/order-service-0.1.0.tgz
     version: 0.1.0
   postgres:
   - apiVersion: v2
@@ -31,7 +31,7 @@ entries:
     name: postgres
     type: application
     urls:
-    - https://srihas.github.com/charts/postgres-0.1.0.tgz
+    - https://srihas.github.io/charts/postgres-0.1.0.tgz
     version: 0.1.0
   rabbitmq:
   - apiVersion: v2
@@ -42,7 +42,7 @@ entries:
     name: rabbitmq
     type: application
     urls:
-    - https://srihas.github.com/charts/rabbitmq-0.1.0.tgz
+    - https://srihas.github.io/charts/rabbitmq-0.1.0.tgz
     version: 0.1.0
   shipping-service:
   - apiVersion: v2
@@ -53,6 +53,6 @@ entries:
     name: shipping-service
     type: application
     urls:
-    - https://srihas.github.com/charts/shipping-service-0.1.0.tgz
+    - https://srihas.github.io/charts/shipping-service-0.1.0.tgz
     version: 0.1.0
 generated: "2020-04-28T16:05:45.768964+05:30"
