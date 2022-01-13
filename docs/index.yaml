@@ -1,0 +1,58 @@
+apiVersion: v1
+entries:
+  inventory-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-01-13T19:16:55.8715239+05:30"
+    description: A Helm chart for Inventory Service sample application
+    digest: 696cc9e136503089d3c8d6eb6a8960f6305c9b42c365054b8ec781ae6daa6c22
+    name: inventory-service
+    type: application
+    urls:
+    - https://srihas.github.io/charts/inventory-service-0.1.0.tgz
+    version: 0.1.0
+  order-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-01-13T19:16:55.8735147+05:30"
+    description: A Helm chart for Order service sample application
+    digest: f44a777b3df4a3654427f50abecfd77093b6bc346363283aff6e5c605f438eba
+    name: order-service
+    type: application
+    urls:
+    - https://srihas.github.io/charts/order-service-0.1.0.tgz
+    version: 0.1.0
+  postgres:
+  - apiVersion: v2
+    appVersion: "10.4"
+    created: "2022-01-13T19:16:55.8756054+05:30"
+    description: A Helm chart for postgres application
+    digest: e318efdd129df4245b59cd1b324a1d4b6d10e2c87aecc0c273dd892810e240af
+    name: postgres
+    type: application
+    urls:
+    - https://srihas.github.io/charts/postgres-0.1.0.tgz
+    version: 0.1.0
+  rabbitmq:
+  - apiVersion: v2
+    appVersion: "3.7"
+    created: "2022-01-13T19:16:55.8781323+05:30"
+    description: A Helm chart for rabbitmq application
+    digest: b07b8cca56cf2bfd36ff28dbd202b5a26f23209de49fc7b29aa4f7a83e9e5708
+    name: rabbitmq
+    type: application
+    urls:
+    - https://srihas.github.io/charts/rabbitmq-0.1.0.tgz
+    version: 0.1.0
+  shipping-service:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2022-01-13T19:16:55.8800506+05:30"
+    description: A Helm chart for shipping service application
+    digest: 73ddb2d30cdf7dd16ea047dc3138a03b22d918786ab5a01a011cf54f5245f895
+    name: shipping-service
+    type: application
+    urls:
+    - https://srihas.github.io/charts/shipping-service-0.1.0.tgz
+    version: 0.1.0
+generated: "2022-01-13T19:16:55.8654518+05:30"
